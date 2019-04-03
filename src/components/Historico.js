@@ -26,7 +26,7 @@ export default class Historico extends Component {
             })
         };
 
-        fetch('http://localhost:3002/historicos/', requestInfo)
+        fetch('https://desafio-mirante-api.herokuapp.com/historicos/', requestInfo)
             .then(response => response.json())
             .then(clientes => {
                 this.setState({ clientes: clientes });

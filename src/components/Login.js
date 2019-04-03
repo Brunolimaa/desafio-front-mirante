@@ -19,7 +19,7 @@ export default class Login extends Component {
             })
         };
 
-        fetch('http://localhost:3002/login', requestInfo)
+        fetch('https://desafio-mirante-api.herokuapp.com/login', requestInfo)
             .then(response => {
                 if(response.ok){
                     const userToken = response.headers.get('Authorization').substring(7);
