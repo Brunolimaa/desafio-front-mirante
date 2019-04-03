@@ -3,6 +3,7 @@ import decodeToken from '../config/config';
 import SweetAlert from 'sweetalert2-react';
 import Modal from 'react-modal';
 import FormularioCliente from './FormularioCliente';
+import ReactLoading from 'react-loading';
 
 const customStyles = {
   content: {
@@ -20,7 +21,7 @@ export default class TabelaClientes extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { clientes: [], nome: '', marca: '', adminUser: false, show: false, modalIsOpen: false, idCliente: '' };
+    this.state = { clientes: [],loading: true, nome: '', marca: '', adminUser: false, show: false, modalIsOpen: false, idCliente: '' };
     this.excluir = this.excluir.bind(this);
     this.buscaLista = this.buscaLista.bind(this);
     this.home = this.home.bind(this);
@@ -39,6 +40,7 @@ export default class TabelaClientes extends Component {
   buscaLista() {
     var token = decodeToken(localStorage.getItem('auth-token'));
     this.isAdmin(token.sub);
+    this.setState({loading: false});
 
     const requestInfo = {
       method: 'GET',
@@ -51,7 +53,7 @@ export default class TabelaClientes extends Component {
     fetch('https://desafio-mirante-api.herokuapp.com/clientes', requestInfo)
       .then(response => response.json())
       .then(clientes => {
-        this.setState({ clientes: clientes });
+        this.setState({ clientes: clientes,loading: true });
         console.log(this.state.clientes);
       })
   }
@@ -115,6 +117,7 @@ export default class TabelaClientes extends Component {
 
 
         <table className="table col-12 col-md-8" >
+        <h1 ><ReactLoading className="loading" hidden={this.state.loading} type={"bars"} color={"#000"}/></h1>
           <thead className="thead-light">
             <tr>
               <th scope="col">Nome</th>

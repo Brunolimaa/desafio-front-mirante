@@ -27,3 +27,12 @@
 .table-person{
     width: 50%;
 }
+
+.loading {
+    margin:auto;
+}
+
+.textoLoading {
+    text-align: center;
+    color: #3897f0;
+}
