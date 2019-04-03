@@ -281,7 +281,7 @@ render() {
       <div className="form-row">
         <div className="form-group col-md-6">
           <label for="staticEmail2" className="sr-only">Email</label>
-          <input type="emil" readonly required className="form-control-plaintext" placeholder="Email" ref={(input) => this.email = input} />
+          <input type="email" readonly required className="form-control-plaintext" placeholder="Email" ref={(input) => this.email = input} />
         </div>
         <fieldset className="form-group col-md-6">
           <div className="form-row">
