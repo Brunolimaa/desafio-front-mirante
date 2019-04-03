@@ -170,7 +170,7 @@ export default class FormularioCliente extends Component {
     this.telefone.value = telefone;
   }
 
-  addTelefone() {
+  addTelefone(event) {
     event.preventDefault();
 
     this.state.fone.push({ 'telefone': this.telefone.value });
