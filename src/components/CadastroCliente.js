@@ -33,7 +33,7 @@ export default class CadastroCliente extends Component {
             })
         };
 
-        fetch('http://localhost:3002/clientes', requestInfo)
+        fetch('https://desafio-mirante-api.herokuapp.com/clientes', requestInfo)
             .then(response => response.json())
             .then(clientes => {
                 this.setState({ clientes: clientes });

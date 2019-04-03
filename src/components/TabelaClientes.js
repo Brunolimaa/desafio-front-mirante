@@ -31,7 +31,7 @@ export default class TabelaClientes extends Component {
       })
     };
 
-    fetch('http://localhost:3002/clientes', requestInfo)
+    fetch('https://desafio-mirante-api.herokuapp.com/clientes', requestInfo)
       .then(response => response.json())
       .then(clientes => {
         this.setState({ clientes: clientes });
@@ -57,7 +57,7 @@ export default class TabelaClientes extends Component {
       })
     };
 
-    fetch(`http://localhost:3002/clientes/${event.target.value}`, requestInfo)
+    fetch(`https://desafio-mirante-api.herokuapp.com/clientes/${event.target.value}`, requestInfo)
       .then(response => response)
       .then(clientes => {
         this.buscaLista();
