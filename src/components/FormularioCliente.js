@@ -39,25 +39,6 @@ export default class FormularioCliente extends Component {
 
   }
 
-  // enviaForm(evento){
-  //     evento.preventDefault();
-
-  //     $.ajax({
-  //       url: "",
-  //       contentType: "application/json",
-  //       dataType: "json",
-  //       type:"post",
-  //       data: JSON.stringify({nome: this.state.nome, marca: this.state.marca}),
-  //       success:function(response){
-  //         this.setState({lista:response});
-  //       }.bind(this),
-  //       error: function(response){
-  //         console.log("erro");
-  //       }
-
-  //     })
-  //   }
-
   componentDidMount() {
     console.log(decodeToken(localStorage.getItem('auth-token')));
     document.getElementById("telefone").disabled = true;
@@ -190,10 +171,11 @@ export default class FormularioCliente extends Component {
   }
 
   addTelefone() {
+    event.preventDefault();
+
     this.state.fone.push({ 'telefone': this.telefone.value });
     console.log(this.state.fone);
     this.setState(this.state.fone);
-    //console.log(this.telefone.value);
   }
 
   habilitaTelefone(event) {
