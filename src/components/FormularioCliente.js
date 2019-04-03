@@ -87,7 +87,7 @@ export default class FormularioCliente extends Component {
       })
     };
 
-    fetch(`http://localhost:3002/clientes`, requestInfo)
+    fetch(`https://desafio-mirante-api.herokuapp.com/clientes`, requestInfo)
       .then(response => {
         if (response.ok) {
           this.setState({ show: true })
@@ -259,7 +259,7 @@ export default class FormularioCliente extends Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label for="staticEmail2" className="sr-only">Email</label>
-            <input type="text" readonly className="form-control-plaintext" placeholder="Email" ref={(input) => this.email = input} />
+            <input type="text" readonly required className="form-control-plaintext" placeholder="Email" ref={(input) => this.email = input} />
           </div>
           <fieldset className="form-group col-md-6">
             <div className="form-row">
